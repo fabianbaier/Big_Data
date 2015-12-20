@@ -1,0 +1,399 @@
+[cloudera@quickstart ~]$ sqoop import-all-tables \
+>     -m 1 \
+>     --connect jdbc:mysql://quickstart:3306/retail_db \
+>     --username=retail_dba \
+>     --password=cloudera \
+>     --compression-codec=snappy \
+>     --as-avrodatafile \
+>     --warehouse-dir=/user/hive/warehouse
+Warning: /usr/lib/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+15/12/20 09:58:59 INFO sqoop.Sqoop: Running Sqoop version: 1.4.5-cdh5.4.2
+15/12/20 09:58:59 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+15/12/20 09:59:00 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+15/12/20 09:59:00 INFO tool.CodeGenTool: Beginning code generation
+15/12/20 09:59:00 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `categories` AS t LIMIT 1
+15/12/20 09:59:00 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `categories` AS t LIMIT 1
+15/12/20 09:59:00 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/categories.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+15/12/20 09:59:03 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/categories.jar
+15/12/20 09:59:04 WARN manager.MySQLManager: It looks like you are importing from mysql.
+15/12/20 09:59:04 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+15/12/20 09:59:04 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+15/12/20 09:59:04 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+15/12/20 09:59:04 INFO mapreduce.ImportJobBase: Beginning import of categories
+15/12/20 09:59:04 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+15/12/20 09:59:04 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+15/12/20 09:59:05 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `categories` AS t LIMIT 1
+15/12/20 09:59:05 INFO mapreduce.DataDrivenImportJob: Writing Avro schema file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/sqoop_import_categories.avsc
+15/12/20 09:59:06 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+15/12/20 09:59:06 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/12/20 09:59:08 INFO db.DBInputFormat: Using read commited transaction isolation
+15/12/20 09:59:08 INFO mapreduce.JobSubmitter: number of splits:1
+15/12/20 09:59:09 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1450583657108_0004
+15/12/20 09:59:09 INFO impl.YarnClientImpl: Submitted application application_1450583657108_0004
+15/12/20 09:59:09 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1450583657108_0004/
+15/12/20 09:59:09 INFO mapreduce.Job: Running job: job_1450583657108_0004
+15/12/20 09:59:20 INFO mapreduce.Job: Job job_1450583657108_0004 running in uber mode : false
+15/12/20 09:59:20 INFO mapreduce.Job:  map 0% reduce 0%
+15/12/20 09:59:28 INFO mapreduce.Job:  map 100% reduce 0%
+15/12/20 09:59:28 INFO mapreduce.Job: Job job_1450583657108_0004 completed successfully
+15/12/20 09:59:28 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=135505
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=1344
+		HDFS: Number of read operations=4
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=5819
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=5819
+		Total vcore-seconds taken by all map tasks=5819
+		Total megabyte-seconds taken by all map tasks=5958656
+	Map-Reduce Framework
+		Map input records=58
+		Map output records=58
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=123
+		CPU time spent (ms)=1240
+		Physical memory (bytes) snapshot=129597440
+		Virtual memory (bytes) snapshot=1508417536
+		Total committed heap usage (bytes)=60751872
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=1344
+15/12/20 09:59:28 INFO mapreduce.ImportJobBase: Transferred 1.3125 KB in 22.3276 seconds (60.1946 bytes/sec)
+15/12/20 09:59:28 INFO mapreduce.ImportJobBase: Retrieved 58 records.
+15/12/20 09:59:28 INFO tool.CodeGenTool: Beginning code generation
+15/12/20 09:59:28 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `customers` AS t LIMIT 1
+15/12/20 09:59:28 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/customers.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+15/12/20 09:59:29 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/customers.jar
+15/12/20 09:59:29 INFO mapreduce.ImportJobBase: Beginning import of customers
+15/12/20 09:59:29 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+15/12/20 09:59:29 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `customers` AS t LIMIT 1
+15/12/20 09:59:29 INFO mapreduce.DataDrivenImportJob: Writing Avro schema file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/sqoop_import_customers.avsc
+15/12/20 09:59:29 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/12/20 09:59:30 INFO db.DBInputFormat: Using read commited transaction isolation
+15/12/20 09:59:30 INFO mapreduce.JobSubmitter: number of splits:1
+15/12/20 09:59:30 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1450583657108_0005
+15/12/20 09:59:31 INFO impl.YarnClientImpl: Submitted application application_1450583657108_0005
+15/12/20 09:59:31 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1450583657108_0005/
+15/12/20 09:59:31 INFO mapreduce.Job: Running job: job_1450583657108_0005
+15/12/20 09:59:41 INFO mapreduce.Job: Job job_1450583657108_0005 running in uber mode : false
+15/12/20 09:59:41 INFO mapreduce.Job:  map 0% reduce 0%
+15/12/20 09:59:52 INFO mapreduce.Job:  map 100% reduce 0%
+15/12/20 09:59:52 INFO mapreduce.Job: Job job_1450583657108_0005 completed successfully
+15/12/20 09:59:52 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=136178
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=470392
+		HDFS: Number of read operations=4
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=8491
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=8491
+		Total vcore-seconds taken by all map tasks=8491
+		Total megabyte-seconds taken by all map tasks=8694784
+	Map-Reduce Framework
+		Map input records=12435
+		Map output records=12435
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=124
+		CPU time spent (ms)=2810
+		Physical memory (bytes) snapshot=146399232
+		Virtual memory (bytes) snapshot=1509470208
+		Total committed heap usage (bytes)=60751872
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=470392
+15/12/20 09:59:52 INFO mapreduce.ImportJobBase: Transferred 459.3672 KB in 23.5401 seconds (19.5142 KB/sec)
+15/12/20 09:59:52 INFO mapreduce.ImportJobBase: Retrieved 12435 records.
+15/12/20 09:59:52 INFO tool.CodeGenTool: Beginning code generation
+15/12/20 09:59:52 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `departments` AS t LIMIT 1
+15/12/20 09:59:52 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/departments.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+15/12/20 09:59:53 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/departments.jar
+15/12/20 09:59:53 INFO mapreduce.ImportJobBase: Beginning import of departments
+15/12/20 09:59:53 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+15/12/20 09:59:53 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `departments` AS t LIMIT 1
+15/12/20 09:59:53 INFO mapreduce.DataDrivenImportJob: Writing Avro schema file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/sqoop_import_departments.avsc
+15/12/20 09:59:53 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/12/20 09:59:54 INFO db.DBInputFormat: Using read commited transaction isolation
+15/12/20 09:59:54 INFO mapreduce.JobSubmitter: number of splits:1
+15/12/20 09:59:54 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1450583657108_0006
+15/12/20 09:59:54 INFO impl.YarnClientImpl: Submitted application application_1450583657108_0006
+15/12/20 09:59:54 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1450583657108_0006/
+15/12/20 09:59:54 INFO mapreduce.Job: Running job: job_1450583657108_0006
+15/12/20 10:00:05 INFO mapreduce.Job: Job job_1450583657108_0006 running in uber mode : false
+15/12/20 10:00:05 INFO mapreduce.Job:  map 0% reduce 0%
+15/12/20 10:00:12 INFO mapreduce.Job:  map 100% reduce 0%
+15/12/20 10:00:13 INFO mapreduce.Job: Job job_1450583657108_0006 completed successfully
+15/12/20 10:00:13 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=135393
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=458
+		HDFS: Number of read operations=4
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=5471
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=5471
+		Total vcore-seconds taken by all map tasks=5471
+		Total megabyte-seconds taken by all map tasks=5602304
+	Map-Reduce Framework
+		Map input records=6
+		Map output records=6
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=95
+		CPU time spent (ms)=1140
+		Physical memory (bytes) snapshot=129085440
+		Virtual memory (bytes) snapshot=1508417536
+		Total committed heap usage (bytes)=60751872
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=458
+15/12/20 10:00:13 INFO mapreduce.ImportJobBase: Transferred 458 bytes in 20.383 seconds (22.4697 bytes/sec)
+15/12/20 10:00:13 INFO mapreduce.ImportJobBase: Retrieved 6 records.
+15/12/20 10:00:13 INFO tool.CodeGenTool: Beginning code generation
+15/12/20 10:00:13 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `order_items` AS t LIMIT 1
+15/12/20 10:00:13 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/order_items.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+15/12/20 10:00:14 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/order_items.jar
+15/12/20 10:00:14 INFO mapreduce.ImportJobBase: Beginning import of order_items
+15/12/20 10:00:14 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+15/12/20 10:00:14 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `order_items` AS t LIMIT 1
+15/12/20 10:00:14 INFO mapreduce.DataDrivenImportJob: Writing Avro schema file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/sqoop_import_order_items.avsc
+15/12/20 10:00:14 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/12/20 10:00:15 INFO db.DBInputFormat: Using read commited transaction isolation
+15/12/20 10:00:15 INFO mapreduce.JobSubmitter: number of splits:1
+15/12/20 10:00:15 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1450583657108_0007
+15/12/20 10:00:16 INFO impl.YarnClientImpl: Submitted application application_1450583657108_0007
+15/12/20 10:00:16 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1450583657108_0007/
+15/12/20 10:00:16 INFO mapreduce.Job: Running job: job_1450583657108_0007
+15/12/20 10:00:25 INFO mapreduce.Job: Job job_1450583657108_0007 running in uber mode : false
+15/12/20 10:00:25 INFO mapreduce.Job:  map 0% reduce 0%
+15/12/20 10:00:38 INFO mapreduce.Job:  map 100% reduce 0%
+15/12/20 10:00:38 INFO mapreduce.Job: Job job_1450583657108_0007 completed successfully
+15/12/20 10:00:38 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=135927
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=1527909
+		HDFS: Number of read operations=4
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=10311
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=10311
+		Total vcore-seconds taken by all map tasks=10311
+		Total megabyte-seconds taken by all map tasks=10558464
+	Map-Reduce Framework
+		Map input records=172198
+		Map output records=172198
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=214
+		CPU time spent (ms)=4720
+		Physical memory (bytes) snapshot=148340736
+		Virtual memory (bytes) snapshot=1509306368
+		Total committed heap usage (bytes)=60751872
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=1527909
+15/12/20 10:00:38 INFO mapreduce.ImportJobBase: Transferred 1.4571 MB in 24.1967 seconds (61.6653 KB/sec)
+15/12/20 10:00:38 INFO mapreduce.ImportJobBase: Retrieved 172198 records.
+15/12/20 10:00:38 INFO tool.CodeGenTool: Beginning code generation
+15/12/20 10:00:38 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `orders` AS t LIMIT 1
+15/12/20 10:00:38 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/orders.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+15/12/20 10:00:39 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/orders.jar
+15/12/20 10:00:39 INFO mapreduce.ImportJobBase: Beginning import of orders
+15/12/20 10:00:39 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+15/12/20 10:00:39 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `orders` AS t LIMIT 1
+15/12/20 10:00:39 INFO mapreduce.DataDrivenImportJob: Writing Avro schema file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/sqoop_import_orders.avsc
+15/12/20 10:00:39 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/12/20 10:00:40 INFO db.DBInputFormat: Using read commited transaction isolation
+15/12/20 10:00:40 INFO mapreduce.JobSubmitter: number of splits:1
+15/12/20 10:00:40 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1450583657108_0008
+15/12/20 10:00:40 INFO impl.YarnClientImpl: Submitted application application_1450583657108_0008
+15/12/20 10:00:40 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1450583657108_0008/
+15/12/20 10:00:40 INFO mapreduce.Job: Running job: job_1450583657108_0008
+15/12/20 10:00:50 INFO mapreduce.Job: Job job_1450583657108_0008 running in uber mode : false
+15/12/20 10:00:50 INFO mapreduce.Job:  map 0% reduce 0%
+15/12/20 10:01:00 INFO mapreduce.Job:  map 100% reduce 0%
+15/12/20 10:01:01 INFO mapreduce.Job: Job job_1450583657108_0008 completed successfully
+15/12/20 10:01:01 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=135546
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=660631
+		HDFS: Number of read operations=4
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=8940
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=8940
+		Total vcore-seconds taken by all map tasks=8940
+		Total megabyte-seconds taken by all map tasks=9154560
+	Map-Reduce Framework
+		Map input records=68883
+		Map output records=68883
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=129
+		CPU time spent (ms)=3870
+		Physical memory (bytes) snapshot=144691200
+		Virtual memory (bytes) snapshot=1509470208
+		Total committed heap usage (bytes)=60751872
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=660631
+15/12/20 10:01:01 INFO mapreduce.ImportJobBase: Transferred 645.1475 KB in 22.1977 seconds (29.0637 KB/sec)
+15/12/20 10:01:01 INFO mapreduce.ImportJobBase: Retrieved 68883 records.
+15/12/20 10:01:01 INFO tool.CodeGenTool: Beginning code generation
+15/12/20 10:01:01 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `products` AS t LIMIT 1
+15/12/20 10:01:01 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/products.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+15/12/20 10:01:02 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/products.jar
+15/12/20 10:01:02 INFO mapreduce.ImportJobBase: Beginning import of products
+15/12/20 10:01:02 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+15/12/20 10:01:02 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `products` AS t LIMIT 1
+15/12/20 10:01:02 INFO mapreduce.DataDrivenImportJob: Writing Avro schema file: /tmp/sqoop-cloudera/compile/b1a79dea0bafbe9383535319fc6bdc27/sqoop_import_products.avsc
+15/12/20 10:01:02 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/12/20 10:01:03 INFO db.DBInputFormat: Using read commited transaction isolation
+15/12/20 10:01:03 INFO mapreduce.JobSubmitter: number of splits:1
+15/12/20 10:01:03 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1450583657108_0009
+15/12/20 10:01:03 INFO impl.YarnClientImpl: Submitted application application_1450583657108_0009
+15/12/20 10:01:03 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1450583657108_0009/
+15/12/20 10:01:03 INFO mapreduce.Job: Running job: job_1450583657108_0009
+15/12/20 10:01:12 INFO mapreduce.Job: Job job_1450583657108_0009 running in uber mode : false
+15/12/20 10:01:12 INFO mapreduce.Job:  map 0% reduce 0%
+15/12/20 10:01:21 INFO mapreduce.Job:  map 100% reduce 0%
+15/12/20 10:01:22 INFO mapreduce.Job: Job job_1450583657108_0009 completed successfully
+15/12/20 10:01:22 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=135825
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=53535
+		HDFS: Number of read operations=4
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=6477
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=6477
+		Total vcore-seconds taken by all map tasks=6477
+		Total megabyte-seconds taken by all map tasks=6632448
+	Map-Reduce Framework
+		Map input records=1345
+		Map output records=1345
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=98
+		CPU time spent (ms)=1700
+		Physical memory (bytes) snapshot=129122304
+		Virtual memory (bytes) snapshot=1510064128
+		Total committed heap usage (bytes)=60751872
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=53535
+15/12/20 10:01:22 INFO mapreduce.ImportJobBase: Transferred 52.2803 KB in 19.8627 seconds (2.6321 KB/sec)
+15/12/20 10:01:22 INFO mapreduce.ImportJobBase: Retrieved 1345 records.
+[cloudera@quickstart ~]$ hadoop fs -ls /user/hive/warehouse
+
+Found 6 items
+drwxr-xr-x   - cloudera hive          0 2015-12-20 09:59 /user/hive/warehouse/categories
+drwxr-xr-x   - cloudera hive          0 2015-12-20 09:59 /user/hive/warehouse/customers
+drwxr-xr-x   - cloudera hive          0 2015-12-20 10:00 /user/hive/warehouse/departments
+drwxr-xr-x   - cloudera hive          0 2015-12-20 10:00 /user/hive/warehouse/order_items
+drwxr-xr-x   - cloudera hive          0 2015-12-20 10:00 /user/hive/warehouse/orders
+drwxr-xr-x   - cloudera hive          0 2015-12-20 10:01 /user/hive/warehouse/products
+[cloudera@quickstart ~]$ 
+[cloudera@quickstart ~]$ hadoop fs -ls /user/hive/warehouse/categories/
+Found 2 items
+-rw-r--r--   1 cloudera hive          0 2015-12-20 09:59 /user/hive/warehouse/categories/_SUCCESS
+-rw-r--r--   1 cloudera hive       1344 2015-12-20 09:59 /user/hive/warehouse/categories/part-m-00000.avro
+[cloudera@quickstart ~]$ ls -l *.avsc
+-rw-rw-r-- 1 cloudera cloudera  541 Dec 20 09:59 sqoop_import_categories.avsc
+-rw-rw-r-- 1 cloudera cloudera 1324 Dec 20 09:59 sqoop_import_customers.avsc
+-rw-rw-r-- 1 cloudera cloudera  409 Dec 20 09:59 sqoop_import_departments.avsc
+-rw-rw-r-- 1 cloudera cloudera  980 Dec 20 10:00 sqoop_import_order_items.avsc
+-rw-rw-r-- 1 cloudera cloudera  632 Dec 20 10:00 sqoop_import_orders.avsc
+-rw-rw-r-- 1 cloudera cloudera  922 Dec 20 10:01 sqoop_import_products.avsc
+[cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -mkdir /user/examples
+[cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -chmod +rw /user/examples
+[cloudera@quickstart ~]$ hadoop fs -copyFromLocal ~/*.avsc /user/examples/
+[cloudera@quickstart ~]$ 
